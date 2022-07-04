@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.dash-navbar{
+    background-color: white;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: var(--font-size-xl);
+    color:#ff5a00;  
+}
+.nav-container{
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-logo{
+    margin-left: 6px;
+}
+@media (max-width: 991px){
+    .custom-navbar div{
+        justify-content: space-between;
+    }
+    .navbar-toggler {
+        margin-right: 1rem;
+    }
+ }

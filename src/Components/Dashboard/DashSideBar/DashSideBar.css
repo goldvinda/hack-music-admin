@@ -1,0 +1,44 @@
+.sideBar{
+    width: 14rem;
+    height: calc(100vh - 52px);
+    border-right: 2px solid #0f0f0f;
+}
+.dash-ul{
+    list-style: none;
+    padding: 1rem 2rem;
+    
+
+}
+.dash-li{
+    margin-bottom: 1rem;
+    width: 100%;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 5px;
+   
+    
+}
+.dash-li:hover{
+    background-color: #e4ebf0ee;
+   
+
+}
+.dash-link{
+    text-decoration: none ;
+    color: #0f0f0f;
+}
+.dash-link:hover{
+    color: #0f0f0f;
+    text-decoration: none;
+    
+    
+}
+@media (max-width: 1190px){
+    .sideBar{
+        width: 7rem;
+    }
+    .text-responsive{
+        display: none;
+
+    }
+}
