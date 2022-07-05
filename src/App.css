@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* { 
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  --first-color: #222831;
+  --second-color: #393e46;
+  --third-color: #ff5a00; 
+  --fourth-color: #f2f2f2;
+  --font-size-xs: 0.65rem;
+  --font-size-sm: 0.7rem;
+  --font-size-md: 0.8rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style-type: none !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 4rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+  font-size: 1.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+.bg-first-color { 
+	background-color: var(--first-color) 
+}
+	
+.bg-second-color { 
+	background-color: var(--second-color)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg-third-color { 
+	background-color: var(--third-color)
+}
+
+.bg-fourth-color { 
+	background-color: var(--fourth-color) 
+}
+
+.tx-first-color { 
+	color: var(--first-color) 
+}
+	
+.tx-second-color { 
+	color: var(--second-color)
+}
+
+.tx-third-color { 
+	color: var(--third-color)
+}
+
+.tx-fourth-color { 
+	color: var(--fourth-color) 
+}
+
+.tx-size-xs {
+  font-size: var(--font-size-xs);
+}
+
+.tx-size-sm {
+  font-size: var(--font-size-sm);
+}
+
+.tx-size-md {
+  font-size: var(--font-size-md);
+}
+
+.tx-size-lg {
+  font-size: var(--font-size-lg);
+}
+
+.tx-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+a {
+  text-decoration: none !important;
+  
 }

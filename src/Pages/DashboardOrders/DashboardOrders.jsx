@@ -8,8 +8,8 @@ import { useParams } from "react-router-dom";
 import { Container, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
-import DashNavBar from "../../components/Dashboard/DashNavBar/DashNavbar";
-import DashSideBar from "../../components/Dashboard/DashSideBar/DashSideBar";
+import DashNavBar from "../../Components/Dashboard/DashNavBar/DashNavbar";
+import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
 
 function DashboardOrders() {
   //Lista de items de lo que sea

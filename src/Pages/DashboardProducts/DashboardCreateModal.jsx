@@ -6,7 +6,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faWrench } from "@fortawesome/free-solid-svg-icons";
 
-export default function DashboardCreateModal() {
+export default function DashboardCreateModal({ setFlag }) {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
 
@@ -18,23 +18,32 @@ export default function DashboardCreateModal() {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/products/", data, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    });
-    console.log(response.data);
+    const response = await axios.post(
+      process.env.REACT_APP_SERVER_URL + "/products/",
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    );
+    setFlag((prev) => !prev);
     handleClose();
   };
 
   return (
     <>
-      <FontAwesomeIcon icon={faPlus} size="lg" onClick={handleShow} className="btn btn-secondary" />
+      <FontAwesomeIcon
+        icon={faPlus}
+        size="lg"
+        onClick={handleShow}
+        className="btn btn-secondary"
+      />
       {/* <Button variant="primary" onClick={handleShow}>
         Edit
       </Button> */}
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{"Create new product"}</Modal.Title>
         </Modal.Header>

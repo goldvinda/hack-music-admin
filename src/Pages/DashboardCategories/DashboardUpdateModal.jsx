@@ -4,11 +4,9 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 
-export default function DashboardUpdateModal({ prod }) {
+export default function DashboardUpdateModal({ categorie, setFlag }) {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
 
@@ -20,25 +18,19 @@ export default function DashboardUpdateModal({ prod }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
-    const response = await axios.patch(
-      process.env.REACT_APP_SERVER_URL + "/products/" + prod._id,
+    await axios.patch(
+      process.env.REACT_APP_SERVER_URL + "/categories/" + categorie._id,
       data,
       {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
-      },
+      }
     );
+    setFlag((prev) => !prev);
     handleClose();
-  };
-
-  const handleDeleteProduct = async () => {
-    await axios.delete(process.env.REACT_APP_SERVER_URL + `/products/` + prod._id, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    });
   };
 
   return (
@@ -49,13 +41,9 @@ export default function DashboardUpdateModal({ prod }) {
         onClick={handleShow}
         className="btn btn-secondary"
       />
-      {/* <Button variant="primary" onClick={handleShow}>
-        Edit
-      </Button> */}
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{prod.name}</Modal.Title>
+          <Modal.Title>{categorie.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
@@ -66,55 +54,53 @@ export default function DashboardUpdateModal({ prod }) {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={prod.name}
+                placeholder={categorie.name}
               />
-              <Form.Text className="text-muted">
-              Max. Chars. 30
-              </Form.Text>
+              <Form.Text className="text-muted">Max Chars.: 30</Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                {...register("category", {
-                  maxLength: 30,
-                })}
-                type="text"
-                placeholder={prod.categoryName}
-              />
-              <Form.Text className="text-muted">
-              Max. Chars. 30
-              </Form.Text>
-            </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 {...register("description", {
                   maxLength: 30,
                 })}
-                type="text-area"
-                placeholder="Enter a description"
+                type="text"
+                placeholder={categorie.description}
               />
               <Form.Text className="text-muted">
-                Max. Chars. 500
+                Enter a valid description
               </Form.Text>
             </Form.Group>
+
             <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Image</Form.Label>
               <Form.Control
-                {...register("price", {
+                {...register("img", {
                   maxLength: 30,
                 })}
-                type="text-area"
-                placeholder={prod.price}
+                type="text"
+                placeholder={categorie.img}
               />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">
+                Enter a valid image url
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Slug</Form.Label>
+              <Form.Control
+                {...register("slug", {
+                  maxLength: 30,
+                })}
+                type="text"
+                placeholder={categorie.slug}
+              />
+              <Form.Text className="text-muted">
+                Enter a coherent slug
+              </Form.Text>
             </Form.Group>
             <Modal.Footer>
-              <Button variant="danger" onClick={handleDeleteProduct}>
-                Delete
-              </Button>
-
               <Button variant="primary" type="submit">
                 Save Changes
               </Button>
