@@ -10,7 +10,7 @@ export default function ProductsModal({ order }) {
 
   return (
     <>
-      <Button className="btn btn-primary pt-1 pb-1 ms-1" onClick={handleShow}>
+      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
         <SearchIcon fontSize="small" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
