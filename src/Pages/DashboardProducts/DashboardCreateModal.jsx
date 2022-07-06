@@ -18,12 +18,20 @@ export default function DashboardCreateModal({ setFlag }) {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const response = await axios.post(
+    const formData = new FormData();
+    formData.append("picture", data.picture[0]);
+    formData.append("name", data.name);
+    formData.append("category", data.category);
+    formData.append("description", data.description);
+    formData.append("price", data.price);
+
+    await axios.post(
       process.env.REACT_APP_SERVER_URL + "/products/",
-      data,
+      formData,
       {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
+          "Content-Type": "multipart/form-data",
         },
       }
     );
@@ -71,6 +79,15 @@ export default function DashboardCreateModal({ setFlag }) {
                 placeholder={"Enter category name..."}
               />
               <Form.Text className="text-muted">Max Char: 30.</Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Picture</Form.Label>
+              <Form.Control
+                {...register("picture")}
+                type="file"
+                placeholder="Uplaod a picture..."
+              />
+              <Form.Text className="text-muted">Max size: ....</Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
