@@ -31,7 +31,7 @@ export default function BuyerModal({ order }) {
 
   return (
     <>
-      <Button className="btn btn-primary pt-1 pb-1 ms-3" onClick={handleShow}>
+      <Button className="btn btn-secondary pt-1 pb-1 ms-3" onClick={handleShow}>
         <SearchIcon fontSize="small" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>

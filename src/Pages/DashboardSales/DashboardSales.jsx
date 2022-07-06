@@ -1,10 +1,9 @@
-import DashSideBar from "../../Components/Dashboard/DashSideBar/DashSideBar";
 import "./DashboardSales.css";
 
 const DashboardSales = () => {
   return (
     <>
-      <div className="d-flex"> 
+      <div className="d-flex">
         <div className="chart-container">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt,
           excepturi quibusdam. Quos sapiente nostrum laboriosam inventore
