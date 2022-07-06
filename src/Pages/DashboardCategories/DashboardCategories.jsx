@@ -24,7 +24,7 @@ function DashboardCategories() {
       renderCell: (params) => {
         return (
           <div className=" d-flex justify-content-center">
-            <img className="w-50" src={params.row.img} alt="" />
+            <img className="w-50 rounded-pill" src={params.row.img} alt="" />
           </div>
         );
       },

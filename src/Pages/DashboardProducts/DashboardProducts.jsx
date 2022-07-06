@@ -25,7 +25,7 @@ function DashboardProducts() {
       renderCell: (params) => {
         return (
           <div className=" d-flex justify-content-center">
-            <img className="w-50" src={params.row.picture[0]} alt="" />
+            <img className="w-50 " src={params.row.picture[0]} alt="" />
           </div>
         );
       },
