@@ -25,7 +25,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        process.env.REACT_APP_SERVER_URL + "/tokens",
+        process.env.REACT_APP_SERVER_URL + "/tokens/admin",
         data
       );
       console.log(response);
