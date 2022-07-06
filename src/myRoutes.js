@@ -18,7 +18,7 @@ const MyRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route element={<ProtectedRoute />}>
           {/* <Route path="/componente" element={<Componente />}>
