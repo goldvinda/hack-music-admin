@@ -10,24 +10,36 @@ export default function BuyerModal({ order }) {
 
   const handleBuyerDetails = (buyer) => {
     let details = [];
-    for (let detail of buyer) {
-      details.push(<li key={detail.id}>{detail}</li>);
+    for (let detail in buyer) {
+      if (
+        detail !== "password" &&
+        detail !== "addresses" &&
+        detail !== "orders" &&
+        detail !== "__v"
+      ) {
+        console.log(detail);
+        details.push(
+          <div>
+            <li key={detail.id}>{detail + " : " + order.buyer[detail]}</li>
+            <hr />
+          </div>
+        );
+      }
     }
     return details;
   };
 
   return (
     <>
-      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
-        <SearchIcon fontSize="medium" />
-        Buyer info
+      <Button className="btn btn-primary pt-1 pb-1 ms-3" onClick={handleShow}>
+        <SearchIcon fontSize="small" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>ORDER: {order._id}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ol> {handleBuyerDetails(order.buyer)} </ol>
+          <ul> {handleBuyerDetails(order.buyer)} </ul>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
               Close

@@ -52,13 +52,20 @@ function DashboardProducts() {
       field: "price",
       headerName: "Price",
       sortable: true,
-      width: 200,
+      width: 100,
+      renderCell: (params) => {
+        return (
+          <div>
+            $ {params.row. price}
+          </div>
+        );
+      }
     },
     {
       field: "stock",
       headerName: "Stock",
       sortable: true,
-      width: 200,
+      width: 100,
     },
     {
       field: "premium",
@@ -75,7 +82,7 @@ function DashboardProducts() {
           </div>
         );
       },
-      width: 150,
+      width: 100,
     },
     {
       field: "action",

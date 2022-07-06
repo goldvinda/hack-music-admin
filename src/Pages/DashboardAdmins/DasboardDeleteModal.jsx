@@ -5,6 +5,7 @@ import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faWrench } from "@fortawesome/free-solid-svg-icons";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function DashboardDeleteModal({ admin, setFlag }) {
   const user = useSelector((state) => state.user);
@@ -28,12 +29,9 @@ export default function DashboardDeleteModal({ admin, setFlag }) {
 
   return (
     <>
-      <FontAwesomeIcon
-        icon={faTrash}
-        size="lg"
-        onClick={handleShow}
-        className="btn btn-danger"
-      />
+      <Button className="btn btn-danger pt-1 pb-1 ms-1" onClick={handleShow}>
+        <DeleteIcon fontSize="medium" />
+      </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{admin.firstName + " " + admin.lastName}</Modal.Title>

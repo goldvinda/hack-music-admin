@@ -8,11 +8,31 @@ export default function AddressModal({ order }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleAddressModal = (address) => {
+    let details = [];
+    for (let detail in address) {
+      if (
+        detail !== "password" &&
+        detail !== "addresses" &&
+        detail !== "orders" &&
+        detail !== "__v"
+      ) {
+        console.log(detail);
+        details.push(
+          <div>
+            <li key={detail.id}>{detail + " : " + order.address[detail]}</li>
+            <hr />
+          </div>
+        );
+      }
+    }
+    return details;
+  };
+
   return (
     <>
-      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
-        <SearchIcon fontSize="medium" />
-        View address
+      <Button className="btn btn-primary pt-1 pb-1 ms-1" onClick={handleShow}>
+        <SearchIcon fontSize="small" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -20,18 +40,7 @@ export default function AddressModal({ order }) {
         </Modal.Header>
         <Modal.Body>
           <h3>Buyer Address:</h3>
-          <ul>
-            {[...order.address].map((prop, index) => {
-              return (
-                <div>
-                  <li key={index}>
-                    {index}" : "{String(prop)}
-                  </li>
-                  <hr />
-                </div>
-              );
-            })}
-          </ul>
+          <ul>{handleAddressModal(order.address)}</ul>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
               Close

@@ -11,18 +11,19 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import AddressModal from "./AddressModal";
 import BuyerModal from "./BuyerModal";
+import ProductsModal from "./ProductsModal";
 
 function DashboardOrders() {
   const columns = [
     {
       field: "buyer",
-      headerName: "First name",
+      headerName: "Buyer",
       width: 150,
       sortable: true,
       renderCell: (params) => {
         return (
           <div>
-            <BuyerModal order={params.row} />
+            {params.row.buyer.firstName + " " +params.row.buyer.lastName }<BuyerModal order={params.row} />
           </div>
         );
       },
@@ -32,18 +33,32 @@ function DashboardOrders() {
       headerName: "Products",
       width: 150,
       sortable: true,
+      renderCell: (params) => {
+        return (
+          <div>
+            Quantity: {params.row.products.length}<ProductsModal order={params.row} />
+          </div>
+        );
+      },
     },
     {
       field: "totalPrice",
       headerName: "Total Price",
       sortable: true,
-      width: 200,
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <div>
+            $ {params.row.totalPrice}
+          </div>
+        );
+      }
     },
     {
       field: "paymentMethod",
       headerName: "Payment Method",
       sortable: true,
-      width: 150,
+      width: 200,
     },
     {
       field: "address",
@@ -53,7 +68,7 @@ function DashboardOrders() {
       renderCell: (params) => {
         return (
           <div>
-            {/* <AddressModal order={params.row} /> */}
+            {params.row.address.city}<AddressModal order={params.row} />
           </div>
         );
       },

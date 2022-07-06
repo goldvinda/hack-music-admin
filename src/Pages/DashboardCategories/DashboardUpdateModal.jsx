@@ -5,6 +5,7 @@ import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
+import BuildIcon from '@mui/icons-material/Build';
 
 export default function DashboardUpdateModal({ categorie, setFlag }) {
   const user = useSelector((state) => state.user);
@@ -35,12 +36,9 @@ export default function DashboardUpdateModal({ categorie, setFlag }) {
 
   return (
     <>
-      <FontAwesomeIcon
-        icon={faWrench}
-        size="lg"
-        onClick={handleShow}
-        className="btn btn-secondary"
-      />
+      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
+        <BuildIcon fontSize="medium" />
+      </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{categorie.name}</Modal.Title>
