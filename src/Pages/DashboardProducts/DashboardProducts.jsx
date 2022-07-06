@@ -18,6 +18,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function DashboardProducts() {
   const columns = [
     {
+      field: "picture",
+      headerName: "Image",
+      width: 150,
+      sortable: true,
+      renderCell: (params) => {
+        return (
+          <div className=" d-flex justify-content-center">
+            <img className="w-50" src={params.row.picture[0]} alt="" />
+          </div>
+        );
+      },
+    },
+    {
       field: "name",
       headerName: "Name",
       width: 150,
@@ -62,7 +75,7 @@ function DashboardProducts() {
           </div>
         );
       },
-      width: 200,
+      width: 150,
     },
     {
       field: "action",

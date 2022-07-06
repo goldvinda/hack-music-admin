@@ -17,28 +17,35 @@ import { DataGrid } from "@mui/x-data-grid";
 function DashboardCategories() {
   const columns = [
     {
+      field: "img",
+      headerName: "Image",
+      width: 150,
+      sortable: true,
+      renderCell: (params) => {
+        return (
+          <div className=" d-flex justify-content-center">
+            <img className="w-50" src={params.row.img} alt="" />
+          </div>
+        );
+      },
+    },
+    {
       field: "alias",
       headerName: "Name",
-      width: 150,
+      width: 200,
       sortable: true,
     },
     {
       field: "slug",
       headerName: "Slug",
-      width: 150,
-      sortable: true,
-    },
-    {
-      field: "img",
-      headerName: "Image",
-      width: 150,
+      width: 200,
       sortable: true,
     },
     {
       field: "Products",
       headerName: "Products",
       sortable: true,
-      width: 200,
+      width: 100,
       renderCell: (params) => {
         return (
           <div>

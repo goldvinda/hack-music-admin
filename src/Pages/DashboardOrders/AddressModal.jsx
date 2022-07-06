@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function DashboardDeleteModal({ categorie }) {
+export default function AddressModal({ order }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -11,24 +11,27 @@ export default function DashboardDeleteModal({ categorie }) {
   return (
     <>
       <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
-        <SearchIcon fontSize="medium" />{categorie.products.length}
+        <SearchIcon fontSize="medium" />
+        View address
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{categorie.alias}</Modal.Title>
+          <Modal.Title>ORDER: {order._id}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ol>
-            {console.log(categorie.products)}
-            {categorie.products.map((product, index) => {
+          <h3>Buyer Address:</h3>
+          <ul>
+            {[...order.address].map((prop, index) => {
               return (
                 <div>
-                  <li key={index}>{product.name}</li>
+                  <li key={index}>
+                    {index}" : "{String(prop)}
+                  </li>
                   <hr />
                 </div>
               );
             })}
-          </ol>
+          </ul>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
               Close
