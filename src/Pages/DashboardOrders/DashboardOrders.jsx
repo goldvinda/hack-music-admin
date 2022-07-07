@@ -18,12 +18,13 @@ function DashboardOrders() {
     {
       field: "buyer",
       headerName: "Buyer",
-      width: 150,
+      flex: 1,
       sortable: true,
       renderCell: (params) => {
         return (
           <div>
-            {params.row.buyer.firstName + " " +params.row.buyer.lastName }<BuyerModal order={params.row} />
+            {params.row.buyer.firstName + " " + params.row.buyer.lastName}
+            <BuyerModal order={params.row} />
           </div>
         );
       },
@@ -31,12 +32,13 @@ function DashboardOrders() {
     {
       field: "products",
       headerName: "Products",
-      width: 150,
+      flex: 1,
       sortable: true,
       renderCell: (params) => {
         return (
           <div>
-            Quantity: {params.row.products.length}<ProductsModal order={params.row} />
+            Quantity: {params.row.products.length}
+            <ProductsModal order={params.row} />
           </div>
         );
       },
@@ -45,30 +47,27 @@ function DashboardOrders() {
       field: "totalPrice",
       headerName: "Total Price",
       sortable: true,
-      width: 100,
+      flex: 1,
       renderCell: (params) => {
-        return (
-          <div>
-            $ {params.row.totalPrice}
-          </div>
-        );
-      }
+        return <div>$ {params.row.totalPrice}</div>;
+      },
     },
     {
       field: "paymentMethod",
       headerName: "Payment Method",
       sortable: true,
-      width: 200,
+      flex: 1,
     },
     {
       field: "address",
       headerName: "Address",
       sortable: true,
-      width: 150,
+      flex: 1,
       renderCell: (params) => {
         return (
           <div>
-            {params.row.address.city}<AddressModal order={params.row} />
+            {params.row.address}
+            <AddressModal order={params.row} />
           </div>
         );
       },
@@ -96,35 +95,27 @@ function DashboardOrders() {
 
   return (
     <>
-      <div>
-        <div>
-          {orders ? (
-            <div>
-              <Container>
-                <div className="d-flex justify-content-between">
-                  <h2>Orders</h2>
-                </div>
-                <Box>
-                  <DataGrid
-                    rows={orders}
-                    getRowId={(row) => row._id}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    autoHeight
-                  />
-                </Box>
-              </Container>
-            </div>
-          ) : (
-            <div>
-              <Container>
-                <h1>Sin elementos</h1>
-              </Container>
-            </div>
-          )}
-        </div>
-      </div>
+      {orders ? (
+        <Container fluid className="me-3 ps-4">
+          <div className="d-flex justify-content-between">
+            <h2>Orders</h2>
+          </div>
+          <Box>
+            <DataGrid
+              rows={orders}
+              getRowId={(row) => row._id}
+              columns={columns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              autoHeight
+            />
+          </Box>
+        </Container>
+      ) : (
+        <Container fluid className="me-3 ps-4">
+          <h1>Sin elementos</h1>
+        </Container>
+      )}
     </>
   );
 }

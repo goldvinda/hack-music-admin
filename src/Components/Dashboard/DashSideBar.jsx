@@ -37,14 +37,10 @@ function DashSideBar(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <h4>Business Overall</h4>
+      <h4 className="ms-3">Business Overall</h4>
       <Divider />
       <List>
-        {[
-          ["Dashboard", "/dashboard"],
-          ["Sales Metrics", "/sales"],
-          ["Digital Marketing", "/marketing"],
-        ].map((text, index) => (
+        {[["Dashboard", "/dashboard"]].map((text, index) => (
           <Link key={text[0]} className="dash-link" to={text[1]}>
             <ListItem key={text[0]} disablePadding className="pt-2 pb-2">
               <ListItemButton>
@@ -64,11 +60,11 @@ function DashSideBar(props) {
         ))}
       </List>
       <div className="pt-3">
-        <h4>Data CRUD</h4>
+        <h4 className="ms-3">Data CRUD</h4>
       </div>
       <Divider />
       <List>
-        {["Categories", "Products", "orders", "admins"].map((text, index) => (
+        {["Categories", "Products", "Orders", "Admins"].map((text, index) => (
           <Link key={text[0]} className="dash-link" to={"/" + text}>
             <ListItem key={text} disablePadding className="pt-2 pb-2">
               <ListItemButton>
@@ -163,12 +159,11 @@ function DashSideBar(props) {
       <Box
         component="main"
         sx={{
-          paddingTop:10,
-          width: { md: `calc(100vw - ${drawerWidth}px)`,
-                   xs: "100vw" },
+          paddingTop: 10,
+          width: { md: `calc(100vw - ${drawerWidth}px)`, xs: "100vw" },
         }}
       >
-      <Outlet />
+        <Outlet />
       </Box>
     </Box>
   );

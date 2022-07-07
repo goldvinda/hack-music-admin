@@ -17,32 +17,32 @@ function DashboardAdmins() {
     {
       field: "firstName",
       headerName: "First name",
-      width: 150,
+      flex: 1,
       sortable: true,
     },
     {
       field: "lastName",
       headerName: "Last name",
-      width: 150,
+      flex: 1,
       sortable: true,
     },
     {
       field: "email",
       headerName: "Email",
       sortable: true,
-      width: 200,
+      flex: 1,
     },
     {
       field: "password",
       headerName: "Password",
       sortable: true,
-      width: 150,
+      flex: 1,
     },
     {
       field: "phone",
       headerName: "Phone number",
       sortable: true,
-      width: 150,
+      flex: 1,
     },
     {
       field: "action",
@@ -82,36 +82,30 @@ function DashboardAdmins() {
 
   return (
     <>
-      <div>
+      {admins ? (
+        <Container fluid className="me-3 ps-4">
+          <div className="d-flex justify-content-between">
+            <h2>Admins</h2>
+            <DashboardCreateModal setFlag={setFlag} />
+          </div>
+          <Box>
+            <DataGrid
+              rows={admins}
+              getRowId={(row) => row._id}
+              columns={columns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              autoHeight
+            />
+          </Box>
+        </Container>
+      ) : (
         <div>
-          {admins ? (
-            <div>
-              <Container>
-                <div className="d-flex justify-content-between">
-                  <h2>Admins</h2>
-                  <DashboardCreateModal setFlag={setFlag} />
-                </div>
-                <Box>
-                  <DataGrid
-                    rows={admins}
-                    getRowId={(row) => row._id}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    autoHeight
-                  />
-                </Box>
-              </Container>
-            </div>
-          ) : (
-            <div>
-              <Container>
-                <h1>Sin elementos</h1>
-              </Container>
-            </div>
-          )}
+          <Container fluid className="me-3 ps-4">
+            <h1>Sin elementos</h1>
+          </Container>
         </div>
-      </div>
+      )}
     </>
   );
 }

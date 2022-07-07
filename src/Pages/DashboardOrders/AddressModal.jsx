@@ -17,7 +17,6 @@ export default function AddressModal({ order }) {
         detail !== "orders" &&
         detail !== "__v"
       ) {
-        console.log(detail);
         details.push(
           <div>
             <li key={detail.id}>{detail + " : " + order.address[detail]}</li>

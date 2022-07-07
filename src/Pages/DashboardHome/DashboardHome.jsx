@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import DashboardOrders from "../DashboardOrders/DashboardOrders";
 import data from "./data.json";
-import { ResponsiveTreeMap } from "@nivo/treemap";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -58,12 +57,12 @@ export default function BasicGrid() {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#1" variant="outlined" /> Percussions
+                        <Chip label="#1" variant="outlined" />
+                        <Typography className="mt-2">Percussions</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Percussions was the best selling category last month.
+                        Accounting for 18.7% of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -80,19 +79,19 @@ export default function BasicGrid() {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#2" variant="outlined" /> Strings
+                        <Chip label="#2" variant="outlined" />
+                        <Typography className="mt-2">Strings</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Strings was the second best selling category last month.
+                        Accounting for 12.1% of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
                 </Card>
               </Link>
               <Link to="/categories">
-                <Card className=" h-100">
+                <Card className="h-100">
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -102,12 +101,12 @@ export default function BasicGrid() {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#3" variant="outlined" /> Accesories
+                        <Chip label="#3" variant="outlined" />
+                        <Typography className="mt-2">Accesories</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Accesories was the third best selling category last
+                        month. Accounting for 8.3% of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -117,30 +116,7 @@ export default function BasicGrid() {
           </div>
         </Grid>
         <Grid item xs={12} lg={6}>
-          <Item>
-            {console.log(data)}
-            <ResponsiveTreeMap
-              root={data.root}
-              identity="name"
-              value="loc"
-              valueFormat=".02s"
-              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-              labelSkipSize={12}
-              labelTextColor={{
-                from: "color",
-                modifiers: [["darker", 1.2]],
-              }}
-              parentLabelPosition="left"
-              parentLabelTextColor={{
-                from: "color",
-                modifiers: [["darker", 2]],
-              }}
-              borderColor={{
-                from: "color",
-                modifiers: [["darker", 0.1]],
-              }}
-            />
-          </Item>
+          <Item>{console.log(data)}</Item>
         </Grid>
         <Grid item xs={12} lg={6}>
           <div className="m-3">

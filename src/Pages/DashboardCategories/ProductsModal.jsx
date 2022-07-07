@@ -11,7 +11,8 @@ export default function DashboardDeleteModal({ categorie }) {
   return (
     <>
       <Button className="btn btn-primary pt-1 pb-1 ms-1" onClick={handleShow}>
-        <SearchIcon fontSize="medium" />{categorie.products.length}
+        <SearchIcon fontSize="medium" />
+        {categorie.products.length}
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -19,7 +20,6 @@ export default function DashboardDeleteModal({ categorie }) {
         </Modal.Header>
         <Modal.Body>
           <ol>
-            {console.log(categorie.products)}
             {categorie.products.map((product, index) => {
               return (
                 <div>
