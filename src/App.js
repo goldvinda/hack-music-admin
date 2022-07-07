@@ -3,7 +3,7 @@ import "./App.css";
 
 import MyRoutes from "./myRoutes";
 import { Routes, Route } from "react-router-dom";
-import OffcanvasInfo from "./components/OffcanvasInfo/OffcanvasInfo";
+import OffcanvasInfo from "./Components/OffcanvasInfo/OffcanvasInfo";
 
 function App() {
   return (
