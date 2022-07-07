@@ -4,9 +4,9 @@
     border-right: 2px solid #0f0f0f;
 }
 
-body {
+/* body {
     overflow: hidden;
-}
+} */
 .dash-ul{
     list-style: none;
     padding: 1rem 2rem;

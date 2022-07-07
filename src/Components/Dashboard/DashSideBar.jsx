@@ -42,8 +42,8 @@ function DashSideBar(props) {
       <List>
         {[
           ["Dashboard", "/dashboard"],
-          ["Sales Metrics", "/dashboard/sales"],
-          ["Digital Marketing", "/dashboard/marketing"],
+          ["Sales Metrics", "/sales"],
+          ["Digital Marketing", "/marketing"],
         ].map((text, index) => (
           <Link key={text[0]} className="dash-link" to={text[1]}>
             <ListItem key={text[0]} disablePadding className="pt-2 pb-2">

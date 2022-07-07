@@ -45,7 +45,7 @@ function DashboardOrders() {
       field: "totalPrice",
       headerName: "Total Price",
       sortable: true,
-      width: 150,
+      width: 100,
       renderCell: (params) => {
         return (
           <div>
