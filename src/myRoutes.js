@@ -14,13 +14,8 @@ const MyRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>
-          {/* <Route path="/componente" element={<Componente />}>
-            <Route index path="box1" element={<Box1 />} />
-            <Route path="box2" element={<Box2 />} />
-          </Route> */}
           <Route path="/" element={<Dashboard />}>
             <Route path="dashboard" element={<DashboardHome />} />
             <Route path="sales" element={<DashboardSales />} />
@@ -29,6 +24,7 @@ const MyRoutes = () => {
             <Route path="admins" element={<DashboardAdmins />} />
             <Route path="orders" element={<DashboardOrders />} />
             <Route path="categories" element={<DashboardCategories />} />
+            <Route path="/logout" element={<Logout />} />
           </Route>
         </Route>
       </Routes>

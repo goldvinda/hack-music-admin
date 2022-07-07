@@ -24,6 +24,8 @@ export default function DashboardCreateModal({ setFlag }) {
     formData.append("category", data.category);
     formData.append("description", data.description);
     formData.append("price", data.price);
+    formData.append("premium", data.premium);
+    formData.append("stock", data.stock);
 
     await axios.post(
       process.env.REACT_APP_SERVER_URL + "/products/",
@@ -45,7 +47,7 @@ export default function DashboardCreateModal({ setFlag }) {
         icon={faPlus}
         size="lg"
         onClick={handleShow}
-        className="btn btn-secondary"
+        className="btn bg-white btn-outline-secondary"
       />
       {/* <Button variant="primary" onClick={handleShow}>
         Edit
@@ -57,43 +59,52 @@ export default function DashboardCreateModal({ setFlag }) {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
+
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 {...register("name", {
-                  maxLength: 30,
+                  maxLength: 200,
+                  required: true,
                 })}
                 type="text"
                 placeholder={"Enter product name..."}
               />
-              <Form.Text className="text-muted">Max char: 30.</Form.Text>
+              <Form.Text className="text-muted">Max char: 200.</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Category</Form.Label>
-              <Form.Control
-                {...register("category", {
-                  maxLength: 30,
-                })}
-                type="text"
-                placeholder={"Enter category name..."}
-              />
-              <Form.Text className="text-muted">Max Char: 30.</Form.Text>
+              <Form.Group
+                className="form-control"
+                as="select"
+                {...register("category", { required: true })}
+              >
+                <option value="guitar-and-bass">Guitar & Bass</option>
+                <option value="drums-and-percussion">Drums & Percussion</option>
+                <option value="wind-instruments">Wind Instruments</option>
+                <option value="keyboards-and-pianos">Keyboards & Pianos</option>
+                <option value="accessories">Accessories</option>
+              </Form.Group>
+              <Form.Text className="text-muted">Choose a category.</Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Picture</Form.Label>
               <Form.Control
-                {...register("picture")}
+                {...register("picture", { required: true })}
                 type="file"
-                placeholder="Uplaod a picture..."
+                placeholder="Upload a picture..."
               />
               <Form.Text className="text-muted">Max size: ....</Form.Text>
             </Form.Group>
+
+
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 {...register("description", {
                   maxLength: 500,
+                  required: true,
                 })}
                 type="text-area"
                 placeholder="Enter a description..."
@@ -105,14 +116,42 @@ export default function DashboardCreateModal({ setFlag }) {
               <Form.Control
                 {...register("price", {
                   maxLength: 30,
+                  required: true,
                 })}
                 type="text-area"
                 placeholder={"Enter a price..."}
               />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">In US dollars.</Form.Text>
             </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Stock</Form.Label>
+              <Form.Control
+                {...register("stock", {
+                  maxLength: 10,
+                  required: true,
+                })}
+                type="text-area"
+                placeholder={"Enter stock quantity..."}
+              />
+              <Form.Text className="text-muted">
+                Enter stock quantity.
+              </Form.Text>
+            </Form.Group>
+            <Form.Label>Premium</Form.Label>
+            <Form.Group
+              className="form-control"
+              as="select"
+              {...register("premium", { required: true })}
+            >
+              <option value={true}>True</option>
+              <option value={false}>False</option>
+            </Form.Group>
+            <Form.Text className="text-muted">
+              Display as premium product on the Homepage.
+            </Form.Text>
+
             <Modal.Footer>
-              <Button variant="primary" type="submit">
+              <Button variant="secondary" type="submit">
                 Save Changes
               </Button>
             </Modal.Footer>

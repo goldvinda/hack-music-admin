@@ -36,7 +36,7 @@ export default function DashboardUpdateModal({ categorie, setFlag }) {
 
   return (
     <>
-      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
+      <Button className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
         <BuildIcon fontSize="medium" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
