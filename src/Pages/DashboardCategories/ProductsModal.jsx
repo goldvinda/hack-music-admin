@@ -10,7 +10,7 @@ export default function DashboardDeleteModal({ categorie }) {
 
   return (
     <>
-      <Button className="btn btn-primary pt-1 pb-1 ms-1" onClick={handleShow}>
+      <Button className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
         <SearchIcon fontSize="medium" />
         {categorie.products.length}
       </Button>

@@ -25,7 +25,7 @@ function DashboardProducts() {
       renderCell: (params) => {
         return (
           <div className=" d-flex justify-content-center">
-            <img
+            <img className=""
               style={{
                 maxWidth: "4rem",
                 alignSelf: "center",
@@ -60,9 +60,9 @@ function DashboardProducts() {
       field: "price",
       headerName: "Price",
       sortable: true,
-      maxWidth: 75,
+      maxWidth: 95,
       renderCell: (params) => {
-        return <div>$ {params.row.price}</div>;
+        return <div> USD $ {params.row.price}</div>;
       },
     },
     {
@@ -138,6 +138,7 @@ function DashboardProducts() {
               columns={columns}
               pageSize={10}
               rowsPerPageOptions={[5]}
+              rowHeight={60}
               autoHeight
               width={100}
             />

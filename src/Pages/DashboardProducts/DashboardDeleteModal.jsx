@@ -26,7 +26,7 @@ export default function DashboardDeleteModal({ product, setFlag }) {
 
   return (
     <>
-      <Button className="btn btn-danger pt-1 pb-1 ms-1" onClick={handleShow}>
+      <Button className="btn bg-white btn-outline-danger pt-1 pb-1 ms-1" onClick={handleShow}>
         <DeleteIcon fontSize="medium" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>

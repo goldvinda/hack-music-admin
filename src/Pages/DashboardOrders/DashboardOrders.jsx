@@ -16,40 +16,12 @@ import ProductsModal from "./ProductsModal";
 function DashboardOrders() {
   const columns = [
     {
-      field: "buyer",
-      headerName: "Buyer",
-      flex: 1,
-      sortable: true,
-      renderCell: (params) => {
-        return (
-          <div>
-            {params.row.buyer.firstName + " " + params.row.buyer.lastName}
-            <BuyerModal order={params.row} />
-          </div>
-        );
-      },
-    },
-    {
-      field: "products",
-      headerName: "Products",
-      flex: 1,
-      sortable: true,
-      renderCell: (params) => {
-        return (
-          <div>
-            Quantity: {params.row.products.length}
-            <ProductsModal order={params.row} />
-          </div>
-        );
-      },
-    },
-    {
       field: "totalPrice",
       headerName: "Total Price",
       sortable: true,
       flex: 1,
       renderCell: (params) => {
-        return <div>$ {params.row.totalPrice}</div>;
+        return <div> USD $ {params.row.totalPrice}</div>;
       },
     },
     {
@@ -59,15 +31,59 @@ function DashboardOrders() {
       flex: 1,
     },
     {
+      field: "status",
+      headerName: "Order Status",
+      sortable: true,
+      flex: 1,
+    },
+    {
+      field: "buyer",
+      headerName: "Buyer",
+      width: 160,
+      sortable: true,
+      renderCell: (params) => {
+        return (
+          <div className="d-flex justify-content-between w-100 align-items-center">
+            <p className="mb-0">
+              {params.row.buyer.firstName + " " + params.row.buyer.lastName}
+            </p>
+            <div>
+              <BuyerModal order={params.row} />
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      field: "products",
+      headerName: "Products",
+      width: 160,
+      sortable: true,
+      renderCell: (params) => {
+        return (
+          <div className="d-flex justify-content-between w-100 align-items-center">
+            <p className="mb-0">Quantity: {params.row.products.length}</p>
+            <div>
+              <ProductsModal order={params.row} />
+            </div>
+          </div>
+        );
+      },
+    },
+    {
       field: "address",
       headerName: "Address",
       sortable: true,
-      flex: 1,
+      width: 160,
       renderCell: (params) => {
         return (
-          <div>
-            {params.row.address}
-            <AddressModal order={params.row} />
+          <div className="d-flex justify-content-between w-100 align-items-center">
+            <p className="mb-0">
+              {params.row.address ? params.row.address.city : "No address"}
+            </p>
+            <div>
+              <AddressModal order={params.row} />
+            </div>
           </div>
         );
       },

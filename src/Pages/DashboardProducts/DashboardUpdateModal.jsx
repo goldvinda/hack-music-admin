@@ -33,7 +33,7 @@ export default function DashboardUpdateModal({ product, setFlag }) {
 
   return (
     <>
-      <Button className="btn btn-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
+      <Button className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
         <BuildIcon fontSize="medium" />
       </Button>
 

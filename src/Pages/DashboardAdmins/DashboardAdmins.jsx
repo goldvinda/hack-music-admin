@@ -65,7 +65,6 @@ function DashboardAdmins() {
   const [admins, setAdmins] = useState([]);
 
   useEffect(() => {
-    console.log("actualizando admins");
     const handleGetAdmins = async () => {
       const response = await axios.get(
         process.env.REACT_APP_SERVER_URL + `/admins`,
