@@ -9,7 +9,6 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Oval } from "react-loader-spinner";
 
 const OffcanvasInfo = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   //Offcanvas state
