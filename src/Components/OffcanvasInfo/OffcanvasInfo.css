@@ -1,0 +1,7 @@
+.offcanvas-end {
+  width: 500px;
+}
+
+.offcanvas-end  p {
+  font-size: var(--font-size-md);
+}
