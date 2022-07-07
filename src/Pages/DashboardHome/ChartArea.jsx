@@ -20,16 +20,10 @@ const ChartArea = () => {
       <Grid container sx={{ p: 2, pb: 0 }}>
         <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="space-between">
-            <Grid item>
-            <Typography variant="title1">Total Revenue per category per year</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">$254.201</Typography>
-            </Grid>
+             
           </Grid>
         </Grid>
-      </Grid>
-      <hr />
+      </Grid> 
       <Chart {...chartData} />
     </Card>
   );

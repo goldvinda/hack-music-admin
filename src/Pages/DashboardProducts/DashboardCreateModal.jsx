@@ -59,17 +59,18 @@ export default function DashboardCreateModal({ setFlag }) {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit(onSubmit)} className="px-5">
+
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 {...register("name", {
-                  maxLength: 30,
+                  maxLength: 200,
                   required: true,
                 })}
                 type="text"
                 placeholder={"Enter product name..."}
               />
-              <Form.Text className="text-muted">Max char: 30.</Form.Text>
+              <Form.Text className="text-muted">Max char: 200.</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -96,11 +97,13 @@ export default function DashboardCreateModal({ setFlag }) {
               />
               <Form.Text className="text-muted">Max size: ....</Form.Text>
             </Form.Group>
+
+
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 {...register("description", {
-                  maxLength: 250,
+                  maxLength: 500,
                   required: true,
                 })}
                 type="text-area"

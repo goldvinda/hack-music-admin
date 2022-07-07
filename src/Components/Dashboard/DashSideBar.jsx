@@ -23,6 +23,7 @@ import SellIcon from "@mui/icons-material/Sell";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import HeadsetIcon from "@mui/icons-material/Headset";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
@@ -111,11 +112,17 @@ function DashSideBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <HeadsetIcon className="me-3 mb-2" />
-          <h4>Dashboard & Administrative tools</h4>
-          {/* <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography> */}
+          <div className="d-flex justify-content-between w-100 align-items-center">
+            <div className="d-flex">
+              <HeadsetIcon className="me-3 mb-2" />
+              <h4>Dashboard & Administrative tools</h4>
+            </div>
+            <div className="">
+              <Link className="d-flex text-white" to="logout">
+                <h5 className="pe-3">Logout</h5> <LogoutIcon />
+              </Link>
+            </div>
+          </div> 
         </Toolbar>
       </AppBar>
       <Box

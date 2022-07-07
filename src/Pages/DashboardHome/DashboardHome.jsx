@@ -17,27 +17,24 @@ import ChartCardArea from "./ChartCardArea";
 export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12} lg={6}>
           <h2 className="text-left ms-3 mt-2">Revenue decomposition</h2>
           <ChartArea />
-          <h2 className="text-left ms-3 mt-2">
-            Sales & Digital Marketing metrics
-          </h2>
-          <ChartCardArea />
+          <DashboardOrders />
         </Grid>
         <Grid item xs={12} lg={6} className="d-flex flex-column">
           <div className="d-flex flex-column m-1" sx={{ boxShadow: 4 }}>
             <CardActionArea>
-              <h2 className="text-left ms-3 mt-2">Best Sellers: Categories</h2>
+              <h2 className="text-left ms-3 mt-1">Best Sellers: Categories</h2>
             </CardActionArea>
-            <div className="d-flex m-3">
+            <div className="d-flex mt-2 me-3">
               <Link to="/categories">
                 <Card className="me-3 h-100">
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/d1H3H9wF/category-card-percussion.jpg"
                       alt="green iguana"
                     />
@@ -48,7 +45,7 @@ export default function BasicGrid() {
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Percussions was the best selling category last month.
-                        Accounting for 18.7% of total revenue.
+                        Accounting for <strong>18.7%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -59,7 +56,7 @@ export default function BasicGrid() {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/gk6rrjfV/category-card-strings.jpg"
                       alt="green iguana"
                     />
@@ -70,7 +67,7 @@ export default function BasicGrid() {
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Strings was the second best selling category last month.
-                        Accounting for 12.1% of total revenue.
+                        Accounting for <strong>12.1%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -81,18 +78,18 @@ export default function BasicGrid() {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/vZFTnMsp/category-card-wind.jpg"
                       alt="green iguana"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         <Chip label="#3" variant="outlined" />
-                        <Typography className="mt-2">Accesories</Typography>
+                        <Typography className="mt-2">Winds</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Accesories was the third best selling category last
-                        month. Accounting for 8.3% of total revenue.
+                        Winds was the third best selling category last
+                        month. Accounting for <strong>8.3%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -101,7 +98,11 @@ export default function BasicGrid() {
             </div>
           </div>
           <div className="m-2">
-            <DashboardOrders />
+            
+            <h2 className="text-left ms-3 mt-2">
+            Sales & Digital Marketing metrics
+          </h2>
+          <ChartCardArea />
           </div>
         </Grid>
       </Grid>

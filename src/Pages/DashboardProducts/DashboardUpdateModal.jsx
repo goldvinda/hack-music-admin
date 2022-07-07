@@ -3,9 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWrench } from "@fortawesome/free-solid-svg-icons";
-import BuildIcon from '@mui/icons-material/Build';
+import BuildIcon from "@mui/icons-material/Build";
 
 export default function DashboardUpdateModal({ product, setFlag }) {
   const user = useSelector((state) => state.user);
@@ -49,12 +47,12 @@ export default function DashboardUpdateModal({ product, setFlag }) {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 {...register("name", {
-                  maxLength: 30,
+                  maxLength: 200,
                 })}
-                type="text"
-                placeholder={product.name}
+                type="text" 
+                defaultValue = {product.name}
               />
-              <Form.Text className="text-muted">Max. Chars. 30</Form.Text>
+              <Form.Text className="text-muted">Max. Chars. 200</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -64,7 +62,7 @@ export default function DashboardUpdateModal({ product, setFlag }) {
                   maxLength: 30,
                 })}
                 type="text"
-                placeholder={product.categoryName}
+                defaultValue={product.categoryName}
               />
               <Form.Text className="text-muted">Max. Chars. 30</Form.Text>
             </Form.Group>
@@ -72,13 +70,13 @@ export default function DashboardUpdateModal({ product, setFlag }) {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 {...register("description", {
-                  maxLength: 30,
+                  maxLength: 500,
                 })}
                 type="text-area"
-                placeholder="Enter a description"
+                rows="10"
+                defaultValue={product.description}
               />
               <Form.Text className="text-muted">Max. Chars. 500</Form.Text>
-            
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Price</Form.Label>
@@ -87,9 +85,9 @@ export default function DashboardUpdateModal({ product, setFlag }) {
                   maxLength: 30,
                 })}
                 type="text-area"
-                placeholder={product.price}
+                defaultValue={product.price}
               />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">In US dollars.</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -99,22 +97,23 @@ export default function DashboardUpdateModal({ product, setFlag }) {
                   maxLength: 30,
                 })}
                 type="text-area"
-                placeholder={product.stock}
+                defaultValue={product.stock}
               />
-              <Form.Text className="text-muted"></Form.Text>
+              <Form.Text className="text-muted">Enter updated stock quantity</Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Premium?</Form.Label>
-              <Form.Control
-                {...register("outstand", {
-                  maxLength: 30,
-                })}
-                type="text-area"
-                placeholder={product.outstand}
-              />
-              <Form.Text className="text-muted"></Form.Text>
+            <Form.Label>Premium?</Form.Label>
+            <Form.Group
+              className="form-control"
+              as="select"
+              {...register("premium", { required: true })}
+            >
+              <option value={true}>True</option>
+              <option value={false}>False</option>
             </Form.Group>
+            <Form.Text className="text-muted">
+              Display as premium product on the Homepage.
+            </Form.Text>
 
             <Form.Group className="mb-3">
               <Form.Label>slug</Form.Label>
@@ -123,13 +122,13 @@ export default function DashboardUpdateModal({ product, setFlag }) {
                   maxLength: 30,
                 })}
                 type="text-area"
-                placeholder={product.slug}
+                defaultValue={product.slug}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-            
+
             <Modal.Footer>
-              <Button variant="primary" type="submit">
+              <Button variant="secondary" type="submit">
                 Save Changes
               </Button>
             </Modal.Footer>

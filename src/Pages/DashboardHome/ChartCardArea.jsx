@@ -18,11 +18,14 @@ import chartCardData3 from "./chartCardData3";
 
 const ChartCardArea = () => {
   return (
-    <Grid container >
+    <Grid container>
       <Grid item xs={4} className="d-flex">
         <div className="d-flex flex-column">
-          <Card className="m-3" >
-            <h5 className="ms-3">GMV</h5>
+          <Card className="m-3">
+            <div className="d-flex justify-content-between mx-2">
+              <p className="">GMV</p>
+              <p className="text-success" >+23.5</p>
+            </div>
             <Chart {...chartCardData1} />
           </Card>
         </div>
@@ -30,7 +33,10 @@ const ChartCardArea = () => {
       <Grid item xs={4} className="d-flex">
         <div className="d-flex flex-column">
           <Card className="m-3">
-            <h5 className="ms-3">Sessions</h5>
+          <div className="d-flex justify-content-between mx-2">
+              <p className="">Sessions</p>
+              <p className="text-danger" >-3201</p>
+            </div>
             <Chart {...chartCardData2} />
           </Card>
         </div>
@@ -38,7 +44,10 @@ const ChartCardArea = () => {
       <Grid item xs={4} className="d-flex">
         <div className="d-flex flex-column">
           <Card className="m-3">
-            <h5 className="ms-3">Total Users</h5>
+          <div className="d-flex justify-content-between mx-2">
+              <p className="">Total Users</p>
+              <p className="text-success" >+17</p>
+            </div>
             <Chart {...chartCardData3} />
           </Card>
         </div>
