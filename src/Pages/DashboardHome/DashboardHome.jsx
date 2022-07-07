@@ -11,37 +11,22 @@ import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import DashboardOrders from "../DashboardOrders/DashboardOrders";
-import data from "./data.json";
-import { ResponsiveTreeMap } from "@nivo/treemap";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import ChartArea from "./ChartArea";
+import ChartCardArea from "./ChartCardArea";
 
 export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} lg={6}>
-          <Item>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur ad, numquam eveniet earum voluptatibus voluptate vero
-            ab labore nesciunt itaque atque quae non, quidem nam alias vitae
-            cupiditate neque unde. Aut, nostrum veniam sint modi libero tempora
-            iusto ratione fugit quidem consequatur beatae voluptatem aperiam
-            reiciendis ipsam, asperiores est earum totam esse amet eius quam!
-            Esse iure odio aliquid nobis voluptatum perspiciatis animi quam
-            nulla eum laborum. Numquam est repudiandae consequuntur sint earum.
-            Consequatur laudantium minus atque nam molestias, minima earum
-            ratione esse soluta in odit fuga, aspernatur deleniti perspiciatis
-            maxime dignissimos? Quod illum quisquam facilis velit saepe a sit?
-          </Item>
+          <h2 className="text-left ms-3 mt-2">Revenue decomposition</h2>
+          <ChartArea />
+          <h2 className="text-left ms-3 mt-2">
+            Sales & Digital Marketing metrics
+          </h2>
+          <ChartCardArea />
         </Grid>
-        <Grid item xs={12} lg={6} className="d-flex">
+        <Grid item xs={12} lg={6} className="d-flex flex-column">
           <div className="d-flex flex-column m-1" sx={{ boxShadow: 4 }}>
             <CardActionArea>
               <h2 className="text-left ms-3 mt-2">Best Sellers: Categories</h2>
@@ -115,32 +100,7 @@ export default function BasicGrid() {
               </Link>
             </div>
           </div>
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Item>
-            <div>
-              <ResponsiveTreeMap
-                root={data.root}
-                identity="name"
-                value="loc"
-                innerPadding={3}
-                outerPadding={3}
-                margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-                label="loc"
-                labelFormat=".0s"
-                labelSkipSize={12}
-                labelTextColor={{ from: "color", modifiers: [["darker", 1.2]] }}
-                colors={{ scheme: "nivo" }}
-                borderColor={{ from: "color", modifiers: [["darker", 0.3]] }}
-                animate={true}
-                motionStiffness={90}
-                motionDamping={11}
-              />
-            </div>
-          </Item>
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <div className="m-3">
+          <div className="m-2">
             <DashboardOrders />
           </div>
         </Grid>
