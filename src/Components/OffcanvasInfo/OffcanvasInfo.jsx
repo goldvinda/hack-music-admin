@@ -3,9 +3,6 @@ import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import { useDispatch } from "react-redux/es/exports";
-import { logoutUser } from "../../Redux/userSlice";
-import { resetCart } from "../../Redux/cartSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -30,9 +27,9 @@ const OffcanvasInfo = () => {
 
   const handleResetDB = async () => {
     try {
-      const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/reset");
-      dispatch(logoutUser());
-      dispatch(resetCart());
+      const response = await axios.get(
+        process.env.REACT_APP_SERVER_URL + "/reset"
+      );
       if (response.status === 200) {
         setResetMsg(response.data.msg);
         setShowSpinner(false);
@@ -45,12 +42,19 @@ const OffcanvasInfo = () => {
 
   return (
     <>
-      <Button variant="custom" className="custom-btn floatingRightNavigation" onClick={handleShow}>
+      <Button
+        variant="custom"
+        className="custom-btn floatingRightNavigation"
+        onClick={handleShow}
+      >
         About this project
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header
-          style={{ borderBottom: "1px solid var(--third-color)", paddingBottom: "1.35rem" }}
+          style={{
+            borderBottom: "1px solid var(--third-color)",
+            paddingBottom: "1.35rem",
+          }}
           closeButton
         >
           <Offcanvas.Title>
@@ -60,13 +64,16 @@ const OffcanvasInfo = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Offcanvas.Title className="tx-third-color" style={{ fontWeight: "300" }}>
+          <Offcanvas.Title
+            className="tx-third-color"
+            style={{ fontWeight: "300" }}
+          >
             Summary
           </Offcanvas.Title>
           <p>
-            HackMusic is an e-commerce site created as the final project of Hack Academy's Coding
-            Bootcamp. It was developed in 3 weeks by 4 students. <br></br>Click below for more
-            information!
+            HackMusic is an e-commerce site created as the final project of Hack
+            Academy's Coding Bootcamp. It was developed in 3 weeks by 4
+            students. <br></br>Click below for more information!
           </p>
           <Button variant="custom" className="custom-btn mt-2">
             <Link to="/about-us">
@@ -76,12 +83,15 @@ const OffcanvasInfo = () => {
             </Link>
           </Button>
           <hr></hr>
-          <Offcanvas.Title className="tx-third-color" style={{ fontWeight: "300" }}>
+          <Offcanvas.Title
+            className="tx-third-color"
+            style={{ fontWeight: "300" }}
+          >
             Important note
           </Offcanvas.Title>
           <p>
-            Someone may have added, edited or deleted some resources before you came in. Consider
-            reseting the database for a better exeperience.
+            Someone may have added, edited or deleted some resources before you
+            came in. Consider reseting the database for a better exeperience.
           </p>
           <div className="d-flex align-items-center justify-content-between">
             <Button
@@ -112,18 +122,24 @@ const OffcanvasInfo = () => {
                 style={{ backgroundColor: "rgb(240,240,240)" }}
               >
                 {resetMsg}
-                <FontAwesomeIcon icon={faCheck} className="form-icon ps-2 tx-third-color" />
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className="form-icon ps-2 tx-third-color"
+                />
               </p>
             )}
           </div>
 
           <hr></hr>
-          <Offcanvas.Title className="tx-third-color" style={{ fontWeight: "300" }}>
+          <Offcanvas.Title
+            className="tx-third-color"
+            style={{ fontWeight: "300" }}
+          >
             Navigation Guide
           </Offcanvas.Title>
           <p>
-            Feel free to navigate the website, add products to your cart, and finish your purchase
-            logging in with User's credentials:
+            Feel free to navigate the website, add products to your cart, and
+            finish your purchase logging in with User's credentials:
           </p>
           <div
             className="d-flex justify-content-between align-items-center p-2 tx-size-md"
@@ -137,7 +153,10 @@ const OffcanvasInfo = () => {
             <Button
               variant="custom"
               className="tx-third-color"
-              style={{ backgroundColor: "rgb(240,240,240)", color: "var(--third-color)" }}
+              style={{
+                backgroundColor: "rgb(240,240,240)",
+                color: "var(--third-color)",
+              }}
               onClick={handleClose}
             >
               <Link to="/login">
@@ -148,8 +167,9 @@ const OffcanvasInfo = () => {
             </Button>
           </div>
           <p className="pt-3">
-            If you want to play around with the website resources such as categories and products
-            you can accces the Admin Dashboard using these credentials:
+            If you want to play around with the website resources such as
+            categories and products you can accces the Admin Dashboard using
+            these credentials:
           </p>
           <div
             className="d-flex justify-content-between align-items-center p-2 tx-size-md"
@@ -163,7 +183,10 @@ const OffcanvasInfo = () => {
             <Button
               variant="custom"
               className="tx-third-color"
-              style={{ backgroundColor: "rgb(240,240,240)", color: "var(--third-color)" }}
+              style={{
+                backgroundColor: "rgb(240,240,240)",
+                color: "var(--third-color)",
+              }}
               onClick={handleClose}
             >
               <a href="https://hackmusic-admin.vercel.app">
