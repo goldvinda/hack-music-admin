@@ -118,28 +118,25 @@ export default function BasicGrid() {
         </Grid>
         <Grid item xs={12} lg={6}>
           <Item>
-            {console.log(data)}
-            <ResponsiveTreeMap
-              root={data.root}
-              identity="name"
-              value="loc"
-              valueFormat=".02s"
-              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-              labelSkipSize={12}
-              labelTextColor={{
-                from: "color",
-                modifiers: [["darker", 1.2]],
-              }}
-              parentLabelPosition="left"
-              parentLabelTextColor={{
-                from: "color",
-                modifiers: [["darker", 2]],
-              }}
-              borderColor={{
-                from: "color",
-                modifiers: [["darker", 0.1]],
-              }}
-            />
+            <div>
+              <ResponsiveTreeMap
+                root={data.root}
+                identity="name"
+                value="loc"
+                innerPadding={3}
+                outerPadding={3}
+                margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+                label="loc"
+                labelFormat=".0s"
+                labelSkipSize={12}
+                labelTextColor={{ from: "color", modifiers: [["darker", 1.2]] }}
+                colors={{ scheme: "nivo" }}
+                borderColor={{ from: "color", modifiers: [["darker", 0.3]] }}
+                animate={true}
+                motionStiffness={90}
+                motionDamping={11}
+              />
+            </div>
           </Item>
         </Grid>
         <Grid item xs={12} lg={6}>
