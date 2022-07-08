@@ -75,11 +75,11 @@ const OffcanvasInfo = () => {
             students. <br></br>Click below for more information!
           </p>
           <Button variant="custom" className="custom-btn mt-2">
-            <Link to="/about-us">
+            <a href="https://hackmusic.vercel.app/about-us">
               <span className="tx-fourth-color" onClick={handleClose}>
                 About us
               </span>
-            </Link>
+            </a>
           </Button>
           <hr></hr>
           <Offcanvas.Title
@@ -158,11 +158,11 @@ const OffcanvasInfo = () => {
               }}
               onClick={handleClose}
             >
-              <Link to="/login">
+              <a href="https://hackmusic.vercel.app/login">
                 <span className="tx-third-color" onClick={handleClose}>
                   Go to Login
                 </span>
-              </Link>
+              </a>
             </Button>
           </div>
           <p className="pt-3">
@@ -188,11 +188,11 @@ const OffcanvasInfo = () => {
               }}
               onClick={handleClose}
             >
-              <a href="https://hackmusic-admin.vercel.app">
+              <Link to="/">
                 <span className="tx-third-color" onClick={handleClose}>
                   Go to Dashboard
                 </span>
-              </a>
+              </Link>
             </Button>
           </div>
         </Offcanvas.Body>

@@ -30,8 +30,11 @@ export default function AddressModal({ order }) {
 
   return (
     <>
-      <Button className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-1" onClick={handleShow}>
-      <SearchIcon fontSize="small" />
+      <Button
+        className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-1"
+        onClick={handleShow}
+      >
+        <SearchIcon fontSize="small" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -41,7 +44,7 @@ export default function AddressModal({ order }) {
           <h5>Buyer Address:</h5>
           <ul>{handleAddressModal(order.address)}</ul>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>

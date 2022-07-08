@@ -31,7 +31,7 @@ const Login = () => {
         process.env.REACT_APP_SERVER_URL + "/tokens/admin",
         data
       );
-      console.log(response);
+
       dispatch(loginUser(response.data));
       if (response.status === 200) return navigate("/dashboard");
     } catch (err) {
