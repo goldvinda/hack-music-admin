@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./Components/Dashboard/DashSideBar";
 import DashboardCategories from "./Pages/DashboardCategories/DashboardCategories";
 import DashboardOrders from "./Pages/DashboardOrders/DashboardOrders";
@@ -29,6 +29,9 @@ const MyRoutes = () => {
             <Route path="admins" element={<DashboardAdmins />} />
             <Route path="orders" element={<DashboardOrders />} />
             <Route path="categories" element={<DashboardCategories />} />
+            <Route exact path="/">
+              <Navigate to="/dashboard" />
+            </Route>
           </Route>
         </Route>
       </Routes>
