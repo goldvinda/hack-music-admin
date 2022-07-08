@@ -37,7 +37,7 @@ export default function DashboardCreateModal({ setFlag }) {
         icon={faPlus}
         size="lg"
         onClick={handleShow}
-        className="btn btn-secondary"
+        className="btn bg-white btn-outline-secondary"
       />
 
       <Modal className="mt-5" show={show} onHide={handleClose}>

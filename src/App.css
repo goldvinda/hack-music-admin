@@ -83,3 +83,12 @@ a {
   text-decoration: none !important;
   
 }
+
+.floatingRightNavigation {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(calc(50% - 1rem),-50%) rotate(-90deg);
+  transform: translate(calc(50% - 1rem),-50%) rotate(-90deg);
+  z-index: 20;
+}

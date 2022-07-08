@@ -3,12 +3,15 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import { Container, Form, Button } from "react-bootstrap";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey, faPlay } from "@fortawesome/free-solid-svg-icons";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -28,7 +31,7 @@ const Login = () => {
         process.env.REACT_APP_SERVER_URL + "/tokens/admin",
         data
       );
-      console.log(response);
+
       dispatch(loginUser(response.data));
       if (response.status === 200) return navigate("/dashboard");
     } catch (err) {
@@ -38,7 +41,7 @@ const Login = () => {
   return (
     <div>
       <Container className="mt-5 p-4" style={{ maxWidth: "472px" }}>
-        <Form onSubmit={handleSubmit(onSubmit)} className="border-bottom">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="d-flex justify-content-center align-items-center">
             <h2 className="me-3 tx-second-color">Admin Login</h2>
             <FontAwesomeIcon
@@ -62,7 +65,7 @@ const Login = () => {
                   maxLength: 30,
                 })}
                 type="email"
-                placeholder="Enter admin email"
+                defaultValue="admin@admin.com"
                 className="form-control ps-0"
               />
             </div>
@@ -86,7 +89,7 @@ const Login = () => {
                   maxLength: 30,
                 })}
                 type="password"
-                placeholder="Enter admin password"
+                defaultValue="admin"
                 className="form-control ps-0"
               />
             </div>
@@ -111,6 +114,11 @@ const Login = () => {
             Login
           </Button>
         </Form>
+        <Alert severity="warning">
+          <AlertTitle>Info</AlertTitle>
+          If you want to play around with the website resources you can accces
+          the Admin Dashboard using these credentials:
+        </Alert>
       </Container>
     </div>
   );

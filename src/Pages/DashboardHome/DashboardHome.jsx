@@ -11,59 +11,41 @@ import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import DashboardOrders from "../DashboardOrders/DashboardOrders";
-import data from "./data.json";
-import { ResponsiveTreeMap } from "@nivo/treemap";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import ChartArea from "./ChartArea";
+import ChartCardArea from "./ChartCardArea";
 
 export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12} lg={6}>
-          <Item>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur ad, numquam eveniet earum voluptatibus voluptate vero
-            ab labore nesciunt itaque atque quae non, quidem nam alias vitae
-            cupiditate neque unde. Aut, nostrum veniam sint modi libero tempora
-            iusto ratione fugit quidem consequatur beatae voluptatem aperiam
-            reiciendis ipsam, asperiores est earum totam esse amet eius quam!
-            Esse iure odio aliquid nobis voluptatum perspiciatis animi quam
-            nulla eum laborum. Numquam est repudiandae consequuntur sint earum.
-            Consequatur laudantium minus atque nam molestias, minima earum
-            ratione esse soluta in odit fuga, aspernatur deleniti perspiciatis
-            maxime dignissimos? Quod illum quisquam facilis velit saepe a sit?
-          </Item>
+          <h2 className="text-left ms-3 mt-2">Revenue decomposition</h2>
+          <ChartArea />
+          <DashboardOrders />
         </Grid>
-        <Grid item xs={12} lg={6} className="d-flex">
+        <Grid item xs={12} lg={6} className="d-flex flex-column">
           <div className="d-flex flex-column m-1" sx={{ boxShadow: 4 }}>
             <CardActionArea>
-              <h2 className="text-left ms-3 mt-2">Best Sellers: Categories</h2>
+              <h2 className="text-left ms-3 mt-1">Best Sellers: Categories</h2>
             </CardActionArea>
-            <div className="d-flex m-3">
+            <div className="d-flex mt-2 me-3">
               <Link to="/categories">
                 <Card className="me-3 h-100">
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/d1H3H9wF/category-card-percussion.jpg"
                       alt="green iguana"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#1" variant="outlined" /> Percussions
+                        <Chip label="#1" variant="outlined" />
+                        <Typography className="mt-2">Percussions</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Percussions was the best selling category last month.
+                        Accounting for <strong>18.7%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -74,40 +56,40 @@ export default function BasicGrid() {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/gk6rrjfV/category-card-strings.jpg"
                       alt="green iguana"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#2" variant="outlined" /> Strings
+                        <Chip label="#2" variant="outlined" />
+                        <Typography className="mt-2">Strings</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Strings was the second best selling category last month.
+                        Accounting for <strong>12.1%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
                 </Card>
               </Link>
               <Link to="/categories">
-                <Card className=" h-100">
+                <Card className="h-100">
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="175"
                       image="https://i.postimg.cc/vZFTnMsp/category-card-wind.jpg"
                       alt="green iguana"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        <Chip label="#3" variant="outlined" /> Accesories
+                        <Chip label="#3" variant="outlined" />
+                        <Typography className="mt-2">Winds</Typography>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        Winds was the third best selling category last
+                        month. Accounting for <strong>8.3%</strong> of total revenue.
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -115,36 +97,12 @@ export default function BasicGrid() {
               </Link>
             </div>
           </div>
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Item>
-            {console.log(data)}
-            <ResponsiveTreeMap
-              root={data.root}
-              identity="name"
-              value="loc"
-              valueFormat=".02s"
-              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-              labelSkipSize={12}
-              labelTextColor={{
-                from: "color",
-                modifiers: [["darker", 1.2]],
-              }}
-              parentLabelPosition="left"
-              parentLabelTextColor={{
-                from: "color",
-                modifiers: [["darker", 2]],
-              }}
-              borderColor={{
-                from: "color",
-                modifiers: [["darker", 0.1]],
-              }}
-            />
-          </Item>
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <div className="m-3">
-            <DashboardOrders />
+          <div className="m-2">
+            
+            <h2 className="text-left ms-3 mt-2">
+            Sales & Digital Marketing metrics
+          </h2>
+          <ChartCardArea />
           </div>
         </Grid>
       </Grid>

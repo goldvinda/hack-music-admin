@@ -17,7 +17,6 @@ export default function BuyerModal({ order }) {
         detail !== "orders" &&
         detail !== "__v"
       ) {
-        console.log(detail);
         details.push(
           <div>
             <li key={detail.id}>{detail + " : " + order.buyer[detail]}</li>
@@ -31,8 +30,11 @@ export default function BuyerModal({ order }) {
 
   return (
     <>
-      <Button className="btn btn-secondary pt-1 pb-1 ms-3" onClick={handleShow}>
-        <SearchIcon fontSize="small" />
+      <Button
+        className="btn bg-white btn-outline-secondary pt-1 pb-1 ms-3"
+        onClick={handleShow}
+      >
+        <SearchIcon fontSize="small" className="" />
       </Button>
       <Modal className="mt-5" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -41,7 +43,7 @@ export default function BuyerModal({ order }) {
         <Modal.Body>
           <ul> {handleBuyerDetails(order.buyer)} </ul>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>

@@ -19,12 +19,12 @@ function DashboardCategories() {
     {
       field: "img",
       headerName: "Image",
-      width: 150,
+      flex: 1,
       sortable: true,
       renderCell: (params) => {
         return (
           <div className=" d-flex justify-content-center">
-            <img className="w-50 rounded-pill" src={params.row.img} alt="" />
+            <img className="w-50 " src={params.row.img} alt="" />
           </div>
         );
       },
@@ -32,13 +32,13 @@ function DashboardCategories() {
     {
       field: "alias",
       headerName: "Name",
-      width: 200,
+      flex: 1,
       sortable: true,
     },
     {
       field: "slug",
       headerName: "Slug",
-      width: 200,
+      flex: 1,
       sortable: true,
     },
     {
@@ -92,37 +92,29 @@ function DashboardCategories() {
 
   return (
     <>
-      <div>
-        <div>
-          {categories ? (
-            <div>
-              <Container>
-                <div className="d-flex justify-content-between">
-                  <h2>Categories</h2>
-                  <DashboardCreateModal setFlag={setFlag} />
-                </div>
-                {console.log(categories)}
-                <Box>
-                  <DataGrid
-                    rows={categories}
-                    getRowId={(row) => row._id}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    autoHeight
-                  />
-                </Box>
-              </Container>
-            </div>
-          ) : (
-            <div>
-              <Container>
-                <h1>Sin elementos</h1>
-              </Container>
-            </div>
-          )}
-        </div>
-      </div>
+      {categories ? (
+        <Container fluid className="me-3 ps-4">
+          <div className="d-flex justify-content-between">
+            <h2>Categories</h2>
+            <DashboardCreateModal setFlag={setFlag} />
+          </div>
+          {console.log(categories)}
+          <Box>
+            <DataGrid
+              rows={categories}
+              getRowId={(row) => row._id}
+              columns={columns}
+              pageSize={10}
+              rowsPerPageOptions={[5]}
+              autoHeight
+            />
+          </Box>
+        </Container>
+      ) : (
+        <Container fluid className="me-3 ps-4">
+          <h1>Sin elementos</h1>
+        </Container>
+      )}
     </>
   );
 }

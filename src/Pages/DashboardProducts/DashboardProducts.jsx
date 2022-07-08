@@ -20,12 +20,20 @@ function DashboardProducts() {
     {
       field: "picture",
       headerName: "Image",
-      width: 150,
+      width: 100,
       sortable: true,
       renderCell: (params) => {
         return (
           <div className=" d-flex justify-content-center">
-            <img className="w-50 " src={params.row.picture[0]} alt="" />
+            <img className=""
+              style={{
+                maxWidth: "4rem",
+                alignSelf: "center",
+                justifySelf: "center",
+              }}
+              src={params.row.picture[0]}
+              alt={params.row.name}
+            />
           </div>
         );
       },
@@ -33,39 +41,35 @@ function DashboardProducts() {
     {
       field: "name",
       headerName: "Name",
-      width: 150,
+      flex: 1,
       sortable: true,
     },
     {
       field: "categoryName",
       headerName: "Category",
-      width: 150,
+      flex: 1,
       sortable: true,
     },
     {
       field: "description",
       headerName: "Description",
-      width: 150,
+      width: 350,
       sortable: true,
     },
     {
       field: "price",
       headerName: "Price",
       sortable: true,
-      width: 100,
+      maxWidth: 95,
       renderCell: (params) => {
-        return (
-          <div>
-            $ {params.row. price}
-          </div>
-        );
-      }
+        return <div> USD $ {params.row.price}</div>;
+      },
     },
     {
       field: "stock",
       headerName: "Stock",
       sortable: true,
-      width: 100,
+      maxWidth: 75,
     },
     {
       field: "premium",
@@ -82,7 +86,7 @@ function DashboardProducts() {
           </div>
         );
       },
-      width: 100,
+      maxWidth: 85,
     },
     {
       field: "action",
@@ -105,7 +109,6 @@ function DashboardProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    console.log("actualizando admins");
     const handleGetProducts = async () => {
       const response = await axios.get(
         process.env.REACT_APP_SERVER_URL + `/products`,
@@ -115,7 +118,6 @@ function DashboardProducts() {
           },
         }
       );
-      console.log(response.data);
       setProducts(response.data);
     };
     handleGetProducts();
@@ -123,36 +125,30 @@ function DashboardProducts() {
 
   return (
     <>
-      <div>
-        <div>
-          {products ? (
-            <div>
-              <Container>
-                <div className="d-flex justify-content-between">
-                  <h2>Products</h2>
-                  <DashboardCreateModal setFlag={setFlag} />
-                </div>
-                <Box>
-                  <DataGrid
-                    rows={products}
-                    getRowId={(row) => row._id}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    autoHeight
-                  />
-                </Box>
-              </Container>
-            </div>
-          ) : (
-            <div>
-              <Container>
-                <h1>Sin elementos</h1>
-              </Container>
-            </div>
-          )}
-        </div>
-      </div>
+      {products ? (
+        <Container fluid className="me-3 ps-4">
+          <div className="d-flex justify-content-between">
+            <h2>Products</h2>
+            <DashboardCreateModal setFlag={setFlag} />
+          </div>
+          <Box>
+            <DataGrid
+              rows={products}
+              getRowId={(row) => row._id}
+              columns={columns}
+              pageSize={10}
+              rowsPerPageOptions={[5]}
+              rowHeight={60}
+              autoHeight
+              width={100}
+            />
+          </Box>
+        </Container>
+      ) : (
+        <Container fluid className="me-3 ps-4">
+          <h1>Sin elementos</h1>
+        </Container>
+      )}
     </>
   );
 }
