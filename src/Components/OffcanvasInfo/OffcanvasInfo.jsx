@@ -188,7 +188,7 @@ const OffcanvasInfo = () => {
               }}
               onClick={handleClose}
             >
-              <Link to="/">
+              <Link to="/dashboard">
                 <span className="tx-third-color" onClick={handleClose}>
                   Go to Dashboard
                 </span>

@@ -18,15 +18,11 @@ const MyRoutes = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Dashboard />}>
             <Route path="dashboard" element={<DashboardHome />} />
-            <Route path="sales" element={<DashboardSales />} />
-            <Route patºh="marketing" element={<DashboardMarketing />} />
             <Route path="products" element={<DashboardProducts />} />
             <Route path="admins" element={<DashboardAdmins />} />
             <Route path="orders" element={<DashboardOrders />} />
             <Route path="categories" element={<DashboardCategories />} />
-            <Route exact path="/">
-              <Navigate to="/dashboard" />
-            </Route>
+            <Route path="logout" element={<Logout />} />
           </Route>
         </Route>
       </Routes>
