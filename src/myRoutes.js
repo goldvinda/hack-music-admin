@@ -19,7 +19,7 @@ const MyRoutes = () => {
           <Route path="/" element={<Dashboard />}>
             <Route path="dashboard" element={<DashboardHome />} />
             <Route path="sales" element={<DashboardSales />} />
-            <Route path="marketing" element={<DashboardMarketing />} />
+            <Route patºh="marketing" element={<DashboardMarketing />} />
             <Route path="products" element={<DashboardProducts />} />
             <Route path="admins" element={<DashboardAdmins />} />
             <Route path="orders" element={<DashboardOrders />} />
