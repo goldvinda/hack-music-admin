@@ -66,7 +66,9 @@ function DashSideBar(props) {
       <Divider />
       <List>
         {["Categories", "Products", "Orders", "Admins"].map((text, index) => (
+ 
           <Link key={text[0]} className="dash-link" to={"/" + text}>
+ 
             <ListItem key={text} disablePadding className="pt-2 pb-2">
               <ListItemButton>
                 <ListItemIcon>
